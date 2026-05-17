@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboards de Atendimento</title>
+    
+    <!-- Bibliotecas Externas -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    
+    <!-- Arquivo de Estilos -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📊 Dashboards de Atendimento</h1>
+            <p>Visão analítica dos últimos meses de operação</p>
+        </header>
+
+        <!-- KPIs -->
+        <div class="kpi-row">
+            <div class="kpi-card">
+                <div class="kpi-label">📋 Total de Atendimentos</div>
+                <div class="kpi-value" id="kpiTotal">--</div>
+                <div class="kpi-sub">no período analisado</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">📅 Média Diária</div>
+                <div class="kpi-value" id="kpiMediaDia">--</div>
+                <div class="kpi-sub">atendimentos por dia</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">⏱️ Tempo Médio</div>
+                <div class="kpi-value" id="kpiTempoMedio">--</div>
+                <div class="kpi-sub">minutos por resolução</div>
+            </div>
+        </div>
+
+        <!-- Dashboards -->
+        <div class="grid">
+            <div class="card">
+                <h2>📈 Atendimentos – Últimos 90 Dias</h2>
+                <p class="subtitle">Quantidade de atendimentos por dia</p>
+                <div class="chart-container">
+                    <canvas id="chartLinha"></canvas>
+                </div>
+            </div>
+            <div class="card">
+                <h2>🔍 Causas de Atendimento – Março</h2>
+                <p class="subtitle">Distribuição por motivo (Top 5 + Outros)</p>
+                <div class="chart-container">
+                    <canvas id="chartBarras"></canvas>
+                </div>
+            </div>
+            <div class="card">
+                <h2>⚡ SLA – Tempo de Resolução</h2>
+                <p class="subtitle">Distribuição por faixas de minutos</p>
+                <div class="chart-container">
+                    <canvas id="chartHistograma"></canvas>
+                </div>
+                <div id="mediaTempo" class="average-badge"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Arquivo de Script -->
+    <script src="script.js"></script>
+</body>
+</html>
